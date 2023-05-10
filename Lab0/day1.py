@@ -64,29 +64,4 @@ depth('x') => 0
 depth(('expt', 'x', 2)) => 1
 depth(('+', ('expt', 'x', 2), ('expt', 'y', 2))) => 2'''
 
-def depth(x):
-    depth_len=len(x)
-    print(depth_len)
-    print(range(depth_len))
-    
-    # print(x[0])
-    count=0
-    for i in range(depth_len):
-        y=x[i]
-        print(y)
-        if isinstance(y,(tuple)):
-            count+=1
-            continue
-    return count
-
-
-    # for i in range(depth_len):
-    #     if isinstance(x[i],(tuple)):
-    #         count+=1
-    #         return count
-    # 
-# z=(('+', ('expt', 'x', 2), ('expt', 'y', 2)))
-k=(('/', ('expt', 'x', 5), ('expt', ('-', ('expt', 'x', 2),1), ('/', 5, 2)), ('expt', 'x', 2)))   
-# print(depth(z))
-print(depth(k))
 
