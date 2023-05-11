@@ -63,23 +63,38 @@ e.g
 depth('x') => 0
 depth(('expt', 'x', 2)) => 1
 depth(('+', ('expt', 'x', 2), ('expt', 'y', 2))) => 2'''
-def depth(pattern):
-    count=0
-    count_pattern=len(pattern)
-    print(count_pattern)
-    print(pattern[1])
-    print(range(count_pattern-1))
-    for i in range(count_pattern-1):
+# def depth(pattern):
+#     count=0
+#     count_pattern=len(pattern)
+#     print(count_pattern)
+#     print(pattern[1])
+#     print(range(count_pattern-1))
+#     for i in range(count_pattern-1):
         
-        # print(pattern[i])
-        check_pattern=pattern[i]
+#         # print(pattern[i])
+#         check_pattern=pattern[i]
 
-        print(check_pattern[i])
-        # if isinstance(check_pattern[i],tuple):
-        #     count+=1
-        # return count
+#         print(check_pattern[i])
+#         # if isinstance(check_pattern[i],tuple):
+#         #     count+=1
+#         # return count
     
     
 
-x=depth(('expt', '2'))
-print(x)
+# x=depth(('expt', '2'))
+# print(x)
+def depth(expression):
+    if not isinstance(expression, tuple):  # Base case: expression is not a tuple
+        return 0
+    else:
+        max_depth = 0
+        for sub_expr in expression: #it checking every sub-expression in given expression 
+            if isinstance(sub_expr, tuple):
+                sub_depth = depth(sub_expr)
+                max_depth = max(max_depth, sub_depth)
+        return max_depth + 1
+
+# Examples:
+print(depth('x'))  # Output: 0
+print(depth(('expt', 'x', 2)))  # Output: 1
+print(depth(('+', ('expt', 'x', 2), ('expt', 'y', 2))))  # Output: 2
