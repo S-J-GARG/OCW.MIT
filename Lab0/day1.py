@@ -63,5 +63,23 @@ e.g
 depth('x') => 0
 depth(('expt', 'x', 2)) => 1
 depth(('+', ('expt', 'x', 2), ('expt', 'y', 2))) => 2'''
+def depth(pattern):
+    count=0
+    count_pattern=len(pattern)
+    print(count_pattern)
+    print(pattern[1])
+    print(range(count_pattern-1))
+    for i in range(count_pattern-1):
+        
+        # print(pattern[i])
+        check_pattern=pattern[i]
 
+        print(check_pattern[i])
+        # if isinstance(check_pattern[i],tuple):
+        #     count+=1
+        # return count
+    
+    
 
+x=depth(('expt', '2'))
+print(x)
